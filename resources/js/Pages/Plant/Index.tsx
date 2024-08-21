@@ -1,5 +1,5 @@
-export default function Index(){
-    return(<>
-        <h1>Plant</h1>
-    </>);
+import BaseLayout from "@/Layouts/BaseLayout";
+
+export default function Index() {
+    return <BaseLayout></BaseLayout>;
 }
