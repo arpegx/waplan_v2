@@ -1,15 +1,18 @@
+import PrimaryButton from "@/Components/PrimaryButton";
 import BaseLayout from "@/Layouts/BaseLayout";
+import { Plant } from "@/types/plant";
 import { Link } from "@inertiajs/react";
 
-export default function Index() {
+export default function Index(plants: Array<Plant>[]) {
+    let list = plants[0].map((plant: Plant, index: number) => (
+        <p key={index}>{plant.nick_name}</p>
+    ));
     return (
         <BaseLayout>
-            <Link
-                href={route("plant.create")}
-                className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-            >
-                create
-            </Link>
+            {plants && list}
+            <PrimaryButton>
+                <Link href={route("plant.create")}>create</Link>
+            </PrimaryButton>
         </BaseLayout>
     );
 }
