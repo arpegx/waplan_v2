@@ -30,9 +30,11 @@ class PlantController extends Controller
      */
     public function store(StorePlantRequest $request)
     {
-        Plant::create([
+        $plant = Plant::create([
             'nick_name' => request('nick_name'),
         ]);
+
+        return to_route('plant.show', compact('plant'));
     }
 
     /**
@@ -40,7 +42,7 @@ class PlantController extends Controller
      */
     public function show(Plant $plant)
     {
-        //
+        return Inertia::render('Plant/Show');
     }
 
     /**
