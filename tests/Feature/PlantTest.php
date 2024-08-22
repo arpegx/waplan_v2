@@ -38,6 +38,18 @@ test('Plant.Show is displayed', function () {
     $response->assertOk();
 });
 
-//todo plant.edit
-//todo plant.update
-//todo plant.destroy
+test('plant.edit is displayeable', function () {
+    $plant = Plant::factory()->create(['nick_name' => fake()->name()]);
+
+    $response = $this->get(route('plant.edit', $plant))
+        ->assertOk();
+});
+
+test('plant.update', function () {
+    $plant = Plant::factory()->create(['nick_name' => fake()->name()]);
+
+    $response = $this->patch(route('plant.update', ['plant' => $plant, 'nick_name' => 'Jane']))
+        ->assertStatus(302);
+
+    expect((Plant::find($plant)->first())->nick_name)->toEqual('Jane');
+});
