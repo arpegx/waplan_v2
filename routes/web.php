@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//todo resources routing
 Route::get('/plant', [PlantController::class, 'index'])->name('plant.index');
 Route::get('/plant/create', [PlantController::class, 'create'])->name('plant.create');
 Route::get('/plant/{plant}', [PlantController::class, 'show'])->name('plant.show');

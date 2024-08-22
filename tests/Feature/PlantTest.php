@@ -37,3 +37,7 @@ test('Plant.Show is displayed', function () {
 
     $response->assertOk();
 });
+
+//todo plant.edit
+//todo plant.update
+//todo plant.destroy
