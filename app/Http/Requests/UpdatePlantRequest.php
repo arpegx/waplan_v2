@@ -11,7 +11,7 @@ class UpdatePlantRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,7 @@ class UpdatePlantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nick_name' => ['string', 'max:255'],
         ];
     }
 }
