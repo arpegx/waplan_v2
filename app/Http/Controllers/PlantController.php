@@ -42,7 +42,7 @@ class PlantController extends Controller
      */
     public function show(Plant $plant)
     {
-        return Inertia::render('Plant/Show');
+        return Inertia::render('Plant/Show', $plant->toArray());
     }
 
     /**
