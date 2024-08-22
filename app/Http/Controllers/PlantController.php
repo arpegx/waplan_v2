@@ -30,7 +30,9 @@ class PlantController extends Controller
      */
     public function store(StorePlantRequest $request)
     {
-        //
+        Plant::create([
+            'nick_name' => request('nick_name'),
+        ]);
     }
 
     /**
