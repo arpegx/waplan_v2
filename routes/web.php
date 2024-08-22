@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlantController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -27,5 +28,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/plant', function () {
     return Inertia::render('Plant/Index');
 });
+Route::get('/plant/create', [PlantController::class, 'create'])->name('plant.create');
 
 require __DIR__ . '/auth.php';

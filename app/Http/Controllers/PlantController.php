@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePlantRequest;
 use App\Http\Requests\UpdatePlantRequest;
 use App\Models\Plant;
+use Inertia\Inertia;
 
 class PlantController extends Controller
 {
@@ -21,7 +22,7 @@ class PlantController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Plant/Create');
     }
 
     /**
