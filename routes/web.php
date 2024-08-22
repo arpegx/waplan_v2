@@ -31,5 +31,6 @@ Route::get('/plant', function () {
 Route::get('/plant/create', [PlantController::class, 'create'])->name('plant.create');
 Route::get('/plant/{plant}', [PlantController::class, 'show'])->name('plant.show');
 Route::post('/plant', [PlantController::class, 'store'])->name('plant.store');
+Route::get('/plant/{plant}/edit', [PlantController::class, 'edit'])->name('plant.edit');
 
 require __DIR__ . '/auth.php';

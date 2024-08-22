@@ -50,7 +50,7 @@ class PlantController extends Controller
      */
     public function edit(Plant $plant)
     {
-        //
+        return Inertia::render('Plant/Edit', $plant->toArray());
     }
 
     /**
