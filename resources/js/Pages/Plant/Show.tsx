@@ -1,9 +1,5 @@
 import BaseLayout from "@/Layouts/BaseLayout";
-
-interface Plant {
-    id: number;
-    nick_name: string;
-}
+import { Plant } from "@/types/plant";
 
 export default function Show(plant: Plant) {
     return (
