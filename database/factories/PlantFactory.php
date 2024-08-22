@@ -17,7 +17,7 @@ class PlantFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nick_name' => fake()->name(),
         ];
     }
 }
