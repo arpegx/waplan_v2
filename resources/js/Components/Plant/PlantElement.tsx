@@ -10,7 +10,7 @@ export default function PlantElement({ plant }: PlantElementProps) {
     return (
         <div className="grid grid-cols-2">
             <p>{plant.nick_name}</p>
-            <PrimaryButton className="w-24">
+            <PrimaryButton className="w-fit justify-self-end">
                 <Link href={route("plant.show", [{ id: plant.id }])}>show</Link>
             </PrimaryButton>
         </div>

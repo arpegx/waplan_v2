@@ -13,7 +13,11 @@
         background-color: var(--c_bg_container);
 
         .BaseContent {
+            height: 92vh;
             margin: 1rem;
+            border-radius: 1rem;
+            padding: 1em;
+            background-color: var(--c_bg_content);
         }
     }
 }
