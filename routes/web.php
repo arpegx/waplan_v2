@@ -25,9 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/plant', function () {
-    return Inertia::render('Plant/Index');
-})->name('plant.index');
+Route::get('/plant', [PlantController::class, 'index'])->name('plant.index');
 Route::get('/plant/create', [PlantController::class, 'create'])->name('plant.create');
 Route::get('/plant/{plant}', [PlantController::class, 'show'])->name('plant.show');
 Route::post('/plant', [PlantController::class, 'store'])->name('plant.store');
