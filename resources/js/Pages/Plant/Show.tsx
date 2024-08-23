@@ -1,9 +1,13 @@
 import PrimaryButton from "@/Components/PrimaryButton";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
-import { Link } from "@inertiajs/react";
+import { Link, router } from "@inertiajs/react";
 
 export default function Show(plant: Plant) {
+    const destroy = () => {
+        router.delete(route("plant.destroy", plant.id));
+    };
+
     return (
         <BaseLayout>
             <div className="h-full grid content-between">
@@ -20,6 +24,7 @@ export default function Show(plant: Plant) {
                             edit
                         </Link>
                     </PrimaryButton>
+                    <PrimaryButton onClick={destroy}>destroy</PrimaryButton>
                 </div>
             </div>
         </BaseLayout>
