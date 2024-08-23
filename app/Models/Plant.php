@@ -11,5 +11,6 @@ class Plant extends Model
 
     protected $fillable = [
         'nick_name',
+        'picture',
     ];
 }
