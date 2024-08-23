@@ -25,12 +25,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//todo resources routing
-Route::get('/plant', [PlantController::class, 'index'])->name('plant.index');
-Route::get('/plant/create', [PlantController::class, 'create'])->name('plant.create');
-Route::get('/plant/{plant}', [PlantController::class, 'show'])->name('plant.show');
-Route::post('/plant', [PlantController::class, 'store'])->name('plant.store');
-Route::get('/plant/{plant}/edit', [PlantController::class, 'edit'])->name('plant.edit');
-Route::patch('/plant/{plant}', [PlantController::class, 'update'])->name('plant.update');
+Route::resource('/plant', PlantController::class);
 
 require __DIR__ . '/auth.php';
