@@ -25,25 +25,24 @@ export default function Edit(plant: Plant) {
 
     return (
         <BaseLayout>
-            <h1>Edit</h1>
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="nick_name" value="Nick Name" />
+            <form onSubmit={submit} className="grid h-full content-between">
+                <h1 className="max-h-10">Edit</h1>
+                <div className="h-[40rem] text-center">
                     <TextInput
                         id="nick_name"
                         name="nick_name"
+                        placeholder="Nick Name"
                         value={data.nick_name}
                         onChange={(e) => setData("nick_name", e.target.value)}
                     />
                     <InputError message={errors.nick_name} />
                 </div>
-                <div>
+                <div className="flex justify-end gap-2 max-h-10">
                     <PrimaryButton>
                         <Link href={route("plant.show", [{ id: plant.id }])}>
                             cancel
                         </Link>
                     </PrimaryButton>
-
                     <PrimaryButton disabled={processing}>update</PrimaryButton>
                 </div>
             </form>

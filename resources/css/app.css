@@ -1,5 +1,6 @@
 @import "./colors.css";
 @import "./layout.css";
+/* @import "./debug.css"; */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

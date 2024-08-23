@@ -13,25 +13,23 @@ export default function Create() {
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
-
         post(route("plant.store"));
     };
+
     return (
         <BaseLayout>
-            {/* custom headline */}
-            <h1>Create</h1>
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="nick_name" value="Nick Name" />
+            <form onSubmit={submit} className="grid h-full content-between">
+                <h1 className="max-h-10">Create</h1>
+                <div className="h-[40rem] text-center">
                     <TextInput
                         id="nick_name"
                         name="nick_name"
+                        placeholder="Nick Name"
                         onChange={(e) => setData("nick_name", e.target.value)}
                     />
                     <InputError message={errors.nick_name} />
                 </div>
-                <div>
-                    {/* todo Button */}
+                <div className="flex justify-end gap-2 max-h-10">
                     <PrimaryButton>
                         <Link href={route("plant.index")}>index</Link>
                     </PrimaryButton>

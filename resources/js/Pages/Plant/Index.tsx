@@ -7,10 +7,16 @@ import { Link } from "@inertiajs/react";
 export default function Index(plants: Array<Plant>[]) {
     return (
         <BaseLayout>
-            {plants && <PlantList plants={plants} />}
-            <PrimaryButton className="justify-self-end">
-                <Link href={route("plant.create")}>create</Link>
-            </PrimaryButton>
+            <div className="grid content-between h-full">
+                <div className="grid gap-2">
+                    {plants && <PlantList plants={plants} />}
+                </div>
+                <div className="justify-self-end max-h-10">
+                    <PrimaryButton>
+                        <Link href={route("plant.create")}>create</Link>
+                    </PrimaryButton>
+                </div>
+            </div>
         </BaseLayout>
     );
 }
