@@ -53,3 +53,14 @@ test('plant.update', function () {
 
     expect((Plant::find($plant)->first())->nick_name)->toEqual('Jane');
 });
+
+test('plant.delete', function () {
+    $plant = Plant::factory()->create();
+
+    $response = $this
+        ->delete(route('plant.destroy', compact('plant')))
+        ->assertStatus(302)
+        ->assertRedirect(route('plant.index'));
+
+    expect(Plant::find($plant)?->first())->toBeNull();
+});
