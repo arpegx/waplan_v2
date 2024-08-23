@@ -71,6 +71,8 @@ class PlantController extends Controller
      */
     public function destroy(Plant $plant)
     {
-        //
+        $plant->delete();
+
+        return to_route('plant.index');
     }
 }
