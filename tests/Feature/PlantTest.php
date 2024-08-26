@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 use App\Models\Plant;
+use Illuminate\Http\UploadedFile;
 
 test('Plant.Index is displayed', function () {
     $response = $this
@@ -17,9 +18,11 @@ test('Plant.Create is displayed', function () {
 
 test('plant.store creates new plant', function () {
     $nick_name = fake()->name();
+    $file = UploadedFile::fake()->image('image.png');
 
     $response = $this->post('/plant', [
         'nick_name' => $nick_name,
+        'picture' => $file,
     ]);
 
     $plant = Plant::where('nick_name', $nick_name)->first();

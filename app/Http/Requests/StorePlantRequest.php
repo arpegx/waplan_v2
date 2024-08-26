@@ -23,6 +23,7 @@ class StorePlantRequest extends FormRequest
     {
         return [
             'nick_name' => ['required', 'string', 'max:255'],
+            'picture' => ['extensions:jpg,png'],
         ];
     }
 }

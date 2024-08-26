@@ -25,6 +25,7 @@ export default function Create() {
                 <div className="h-[40rem] text-center">
                     <input
                         type="file"
+                        accept="extensions:jpg,png"
                         name="picture"
                         onChange={(e) => setData("picture", e.target.files[0])}
                     />
