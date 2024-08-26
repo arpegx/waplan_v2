@@ -1,4 +1,5 @@
 import PrimaryButton from "@/Components/PrimaryButton";
+import { plant_picture } from "@/Helper/Plant";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
 import { Link, router } from "@inertiajs/react";
@@ -8,16 +9,13 @@ export default function Show(plant: Plant) {
         router.delete(route("plant.destroy", plant.id));
     };
 
-    const path_picture =
-        "../storage/images/plant/" + plant.picture.split("/").pop();
-
     return (
         <BaseLayout>
             <div className="h-full grid content-between">
                 <div>
                     <h1>SHOW</h1>
                     <p>Nick Name: {plant.nick_name}</p>
-                    <img src={path_picture} alt="plant.picture" />
+                    <img src={plant_picture(plant)} alt="plant.picture" />
                 </div>
                 <div className="flex justify-end gap-2">
                     <PrimaryButton>
