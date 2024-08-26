@@ -31,17 +31,15 @@ class PlantController extends Controller
      */
     public function store(StorePlantRequest $request)
     {
-        $file = $request->file("picture");
-        $hasFile = $request->hasFile("picture");
-
-        if ($request->file("picture")) {
-            $filename = request("name") . "." . $request->file("picture")->extension();
+        //todo adjust file path or write js helper
+        if ($request->hasFile("picture")) {
+            $filename = request("nick_name") . "." . $request->file("picture")->extension();
             $request->file("picture")->storeAs('public/images/plant', $filename);
         }
 
         $plant = Plant::create([
             'nick_name' => request('nick_name'),
-            "picture" => $request->file("picture") !== null ? "./storage/images/plant/" . $filename : null,
+            'picture' => $request->file('picture') !== null ? "./storage/images/plant/" . $filename : null,
         ]);
 
         return to_route('plant.show', compact('plant'));
