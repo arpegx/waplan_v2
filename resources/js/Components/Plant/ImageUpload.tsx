@@ -2,37 +2,43 @@ import { useRef } from "react";
 import InputError from "../InputError";
 
 export default function ImageUpload({ data, errors, updateData }: any) {
-    const uploadInput = useRef(null);
-    const imagePreview = useRef(null);
+    const uploadInput = useRef(
+        document.getElementById("uploadInput") as HTMLInputElement
+    );
+    const imagePreview = useRef(
+        document.getElementById("imagePreview") as HTMLImageElement
+    );
 
     const triggerUpload = () => {
         uploadInput.current.value = "";
-        uploadInput.current?.click();
+        uploadInput.current.click();
     };
 
     return (
         <div className="ImageUpload">
             <input
+                id="uploadInput"
                 ref={uploadInput}
+                onChange={updateData}
                 type="file"
                 accept="extensions:jpg,png"
                 name="picture"
-                onChange={updateData}
-                style={{ display: "none" }}
             />
             {data.picture ? (
                 <img
+                    id="imagePreview"
                     ref={imagePreview}
-                    className="imagePreview"
+                    onLoad={() => URL.revokeObjectURL(imagePreview.current.src)}
+                    onClick={triggerUpload}
                     src={URL.createObjectURL(data.picture)}
                     alt="File uploaded"
-                    onLoad={() => URL.revokeObjectURL(imagePreview.src)}
-                    onClick={triggerUpload}
+                    className="imagePreview"
                 />
             ) : (
                 <button
                     onClick={triggerUpload}
                     type="button"
+                    title="Upload image"
                     className="btn_file_upload"
                 ></button>
             )}

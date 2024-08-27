@@ -4,7 +4,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Link, useForm } from "@inertiajs/react";
-import { FormEventHandler, useRef } from "react";
+import { FormEventHandler } from "react";
 
 export default function Create() {
     const { data, setData, post, progress, processing, errors, reset } =
@@ -13,7 +13,7 @@ export default function Create() {
             picture: null,
         });
 
-    function updateData(e) {
+    function updateData(e: any) {
         setData((prev) => {
             return { ...prev, picture: e.target.files[0] };
         });

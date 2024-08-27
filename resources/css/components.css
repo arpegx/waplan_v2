@@ -1,4 +1,8 @@
 .ImageUpload {
+    #uploadInput {
+        display: none;
+    }
+
     .btn_file_upload {
         width: 60vw;
         max-width: 60vw;
@@ -23,9 +27,9 @@
         border: 1px dashed grey;
         border-radius: 5% 5% 80% 5%;
         box-shadow: var(--c_shadow_grey);
-        margin: 1rem 1.8rem;
+        margin: 1rem 1rem 1rem 1.6rem;
         background: url("../assets/icons/fileUpload.png");
-        background-position: cover;
+        background-position: center;
         background-repeat: no-repeat;
         background-size: 40%;
     }
