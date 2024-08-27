@@ -7,7 +7,7 @@ export default function ImageUpload({ data, errors, updateData }: any) {
 
     const triggerUpload = () => {
         uploadInput.current.value = "";
-        uploadInput.current.click();
+        uploadInput.current?.click();
     };
 
     return (

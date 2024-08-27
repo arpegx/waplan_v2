@@ -6,6 +6,9 @@
         "build": "tsc && vite build"
     },
     "devDependencies": {
+        "@babel/plugin-proposal-optional-chaining-assign": "^7.24.7",
+        "@babel/plugin-transform-optional-chaining": "^7.24.8",
+        "@babel/preset-env": "^7.25.4",
         "@headlessui/react": "^2.0.0",
         "@inertiajs/react": "^1.0.0",
         "@tailwindcss/forms": "^0.5.3",
