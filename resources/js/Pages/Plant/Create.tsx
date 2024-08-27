@@ -3,7 +3,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Link, useForm } from "@inertiajs/react";
-import { FormEventHandler } from "react";
+import { FormEventHandler, useRef } from "react";
 
 export default function Create() {
     const { data, setData, post, progress, processing, errors, reset } =
@@ -11,6 +11,11 @@ export default function Create() {
             nick_name: "",
             picture: null,
         });
+
+    const uploadInput = useRef();
+    const triggerUpload = () => {
+        uploadInput.current.click();
+    };
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
@@ -23,11 +28,18 @@ export default function Create() {
                 <h1 className="max-h-10">Create</h1>
                 <div className="h-[40rem] text-center">
                     <input
+                        ref={uploadInput}
                         type="file"
                         accept="extensions:jpg,png"
                         name="picture"
                         onChange={(e) => setData("picture", e.target.files[0])}
+                        style={{ display: "none" }}
                     />
+                    <button
+                        onClick={triggerUpload}
+                        type="button"
+                        className="fileUpload"
+                    ></button>
                     {progress && (
                         <progress value={progress.percentage} max="100">
                             {progress.percentage}%
