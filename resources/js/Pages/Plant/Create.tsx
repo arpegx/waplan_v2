@@ -13,6 +13,8 @@ export default function Create() {
         });
 
     const uploadInput = useRef();
+    const imagePreview = useRef();
+
     const triggerUpload = () => {
         uploadInput.current.click();
     };
@@ -27,6 +29,15 @@ export default function Create() {
             <form onSubmit={submit} className="grid h-full content-between">
                 <h1 className="max-h-10">Create</h1>
                 <div className="h-[40rem] text-center">
+                    {data.picture && (
+                        <img
+                            ref={imagePreview}
+                            className="imagePreview"
+                            src={URL.createObjectURL(data.picture)}
+                            alt="File uploaded"
+                            onLoad={() => URL.revokeObjectURL(imagePreview.src)}
+                        />
+                    )}
                     <input
                         ref={uploadInput}
                         type="file"
@@ -35,16 +46,18 @@ export default function Create() {
                         onChange={(e) => setData("picture", e.target.files[0])}
                         style={{ display: "none" }}
                     />
-                    <button
-                        onClick={triggerUpload}
-                        type="button"
-                        className="fileUpload"
-                    ></button>
-                    {progress && (
+                    {!data.picture && (
+                        <button
+                            onClick={triggerUpload}
+                            type="button"
+                            className="fileUpload"
+                        ></button>
+                    )}
+                    {/* {progress && (
                         <progress value={progress.percentage} max="100">
                             {progress.percentage}%
                         </progress>
-                    )}
+                    )} */}
                     <InputError message={errors.picture} />
                     <TextInput
                         id="nick_name"
