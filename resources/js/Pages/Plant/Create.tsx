@@ -16,6 +16,7 @@ export default function Create() {
     const imagePreview = useRef();
 
     const triggerUpload = () => {
+        uploadInput.current.value = "";
         uploadInput.current.click();
     };
 
@@ -36,6 +37,7 @@ export default function Create() {
                             src={URL.createObjectURL(data.picture)}
                             alt="File uploaded"
                             onLoad={() => URL.revokeObjectURL(imagePreview.src)}
+                            onClick={triggerUpload}
                         />
                     )}
                     <input
