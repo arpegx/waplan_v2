@@ -1,5 +1,5 @@
 import { Plant } from "@/types/plant";
 
-export function plant_picture(plant: Plant){
+export function picture(plant: Plant){
     return "../storage/images/plant/" + plant.picture.split("/").pop();
 }
