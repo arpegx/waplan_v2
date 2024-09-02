@@ -3,6 +3,7 @@ import { picture } from "@/Components/Plant/Plant";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
 import { Link, router } from "@inertiajs/react";
+import styles from "./Plant.module.css";
 
 export default function Show(plant: Plant) {
     const destroy = () => {
@@ -13,9 +14,14 @@ export default function Show(plant: Plant) {
         <BaseLayout>
             <div className="h-full grid content-between">
                 <div>
-                    <h1>SHOW</h1>
-                    <p>Nick Name: {plant.nick_name}</p>
-                    <img src={picture(plant)} alt="plant.picture" />
+                    <img
+                        className={styles.picture}
+                        src={picture(plant)}
+                        alt="plant.picture"
+                    />
+                    <div className="text-center">
+                        <p>{plant.nick_name}</p>
+                    </div>
                 </div>
                 <div className="flex justify-end gap-2">
                     <PrimaryButton>

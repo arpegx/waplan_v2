@@ -27,7 +27,6 @@ export default function Create() {
     return (
         <BaseLayout>
             <form onSubmit={submit} className="grid h-full content-between">
-                <h1 className="max-h-10">Create</h1>
                 <div className="h-[40rem] text-center">
                     <ImageUpload
                         data={data}
