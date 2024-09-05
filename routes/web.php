@@ -25,6 +25,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('/plant', PlantController::class);
-
+Route::resource('/plant', PlantController::class)->except('update');
+Route::post('/plant/update/{plant}', [PlantController::class, 'update'])->name('plant.update');
 require __DIR__ . '/auth.php';

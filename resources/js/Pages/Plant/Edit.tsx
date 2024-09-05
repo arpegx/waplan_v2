@@ -10,13 +10,19 @@ import styles from "./Plant.module.css";
 import { picture } from "@/Components/Plant/Plant";
 
 export default function Edit(plant: Plant) {
-    const { data, setData, patch, processing, errors, reset } = useForm({
+    const { data, setData, post, processing, errors, reset } = useForm({
         nick_name: plant.nick_name,
+        picture: null,
     });
 
+    function updateData(e: any) {
+        setData((prev) => {
+            return { ...prev, picture: e.target.files[0] };
+        });
+    }
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
-        patch(
+        post(
             route("plant.update", [
                 {
                     id: plant.id,
@@ -30,11 +36,20 @@ export default function Edit(plant: Plant) {
             <form onSubmit={submit} className="grid h-full content-between">
                 <h1 className="max-h-10">Edit</h1>
                 <div className="h-[40rem] text-center">
-                    <img
-                        className={styles.picture}
-                        src={picture(plant)}
-                        alt="plant.picture"
+                    <input
+                        id="uploadInput"
+                        type="file"
+                        onChange={updateData}
+                        accept="extensions:jpg,png"
+                        name="picture"
                     />
+                    {plant.picture && (
+                        <img
+                            className={styles.picture}
+                            src={picture(plant)}
+                            alt="plant.picture"
+                        />
+                    )}
                     <TextInput
                         id="nick_name"
                         name="nick_name"
