@@ -4,7 +4,11 @@ import { create } from "@/Helper/Plant";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
 
-export default function Index({ plants }: { plants: Plant[] }) {
+interface PropType {
+    plants: Plant[];
+}
+
+export default function Index({ plants }: PropType) {
     return (
         <BaseLayout>
             <div className="grid content-between h-full">

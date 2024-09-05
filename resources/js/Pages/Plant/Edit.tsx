@@ -8,7 +8,11 @@ import { Plant } from "@/types/plant";
 import { router, useForm } from "@inertiajs/react";
 import { FormEventHandler } from "react";
 
-export default function Edit(plant: Plant) {
+interface PropType {
+    plant: Plant;
+}
+
+export default function Edit({ plant }: PropType) {
     const { data, setData, post, processing, errors, reset } = useForm({
         nick_name: plant.nick_name,
         picture: plant.picture,

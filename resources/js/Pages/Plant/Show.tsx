@@ -1,10 +1,14 @@
 import PrimaryButton from "@/Components/PrimaryButton";
 import { destroy, edit, index, picture } from "@/Helper/Plant";
 import BaseLayout from "@/Layouts/BaseLayout";
-import { Plant } from "@/types/plant";
 import styles from "./Plant.module.css";
+import { Plant } from "@/types/plant";
 
-export default function Show(plant: Plant) {
+interface PropType {
+    plant: Plant;
+}
+
+export default function Show({ plant }: PropType) {
     return (
         <BaseLayout>
             <div className="h-full grid content-between">
