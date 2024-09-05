@@ -4,7 +4,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
-import { Link, useForm } from "@inertiajs/react";
+import { Link, useForm, router } from "@inertiajs/react";
 import { FormEventHandler } from "react";
 import styles from "./Plant.module.css";
 import { picture } from "@/Components/Plant/Plant";
@@ -22,12 +22,19 @@ export default function Edit(plant: Plant) {
     }
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
-        post(
+
+        router.post(
             route("plant.update", [
                 {
                     id: plant.id,
                 },
-            ])
+            ]),
+            {
+                nick_name: data.nick_name,
+                picture: data.picture,
+                forceFormData: true,
+                _method: "patch",
+            }
         );
     };
 
