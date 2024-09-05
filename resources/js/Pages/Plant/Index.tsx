@@ -4,7 +4,7 @@ import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
 import { Link } from "@inertiajs/react";
 
-export default function Index(plants: Array<Plant>[]) {
+export default function Index({ plants }: { plants: Plant[] }) {
     return (
         <BaseLayout>
             <div className="grid content-between h-full">
