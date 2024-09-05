@@ -66,8 +66,13 @@ class PlantController extends Controller
     public function update(UpdatePlantRequest $request, Plant $plant)
     {
         $plant
-            ->fill($request->toArray())
-            ->save();
+            ->fill($request->toArray());
+
+        if ($request->hasFile("picture")) {
+            $plant->addPicture($request);
+        }
+
+        $plant->save();
 
         return to_route('plant.show', compact('plant'));
     }
