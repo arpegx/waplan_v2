@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import InputError from "../InputError";
-import { picture } from "./Plant";
+import { picture } from "@/Helper/Plant";
 
 export default function ImageUpload({ data, errors, updateData }: any) {
     const uploadInput = useRef(

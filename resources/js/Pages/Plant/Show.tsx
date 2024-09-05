@@ -1,5 +1,5 @@
 import PrimaryButton from "@/Components/PrimaryButton";
-import { picture } from "@/Components/Plant/Plant";
+import { picture } from "@/Helper/Plant";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
 import { Link, router } from "@inertiajs/react";
@@ -28,9 +28,7 @@ export default function Show(plant: Plant) {
                         <Link href={route("plant.index")}>index</Link>
                     </PrimaryButton>
                     <PrimaryButton>
-                        <Link href={route("plant.edit", [{ id: plant.id }])}>
-                            edit
-                        </Link>
+                        <Link href={route("plant.edit", plant.id)}>edit</Link>
                     </PrimaryButton>
                     <PrimaryButton onClick={destroy}>destroy</PrimaryButton>
                 </div>
