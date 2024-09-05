@@ -6,6 +6,8 @@ import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
 import { Link, useForm } from "@inertiajs/react";
 import { FormEventHandler } from "react";
+import styles from "./Plant.module.css";
+import { picture } from "@/Components/Plant/Plant";
 
 export default function Edit(plant: Plant) {
     const { data, setData, patch, processing, errors, reset } = useForm({
@@ -28,6 +30,11 @@ export default function Edit(plant: Plant) {
             <form onSubmit={submit} className="grid h-full content-between">
                 <h1 className="max-h-10">Edit</h1>
                 <div className="h-[40rem] text-center">
+                    <img
+                        className={styles.picture}
+                        src={picture(plant)}
+                        alt="plant.picture"
+                    />
                     <TextInput
                         id="nick_name"
                         name="nick_name"
