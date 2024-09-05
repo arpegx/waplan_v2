@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePlantRequest;
 use App\Http\Requests\UpdatePlantRequest;
 use App\Models\Plant;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class PlantController extends Controller
@@ -66,8 +67,9 @@ class PlantController extends Controller
     public function update(UpdatePlantRequest $request, Plant $plant)
     {
         $plant
-            ->fill($request->toArray());
+            ->fill($request->except('picture'));
 
+        Storage::delete("public/images/plant/" . strrchr($plant->picture, '/'));
         if ($request->hasFile("picture")) {
             $plant->addPicture($request);
         }
