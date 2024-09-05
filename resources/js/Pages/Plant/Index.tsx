@@ -1,8 +1,8 @@
 import List from "@/Components/Plant/List";
 import PrimaryButton from "@/Components/PrimaryButton";
+import { create } from "@/Helper/Plant";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
-import { Link } from "@inertiajs/react";
 
 export default function Index({ plants }: { plants: Plant[] }) {
     return (
@@ -12,9 +12,7 @@ export default function Index({ plants }: { plants: Plant[] }) {
                     {plants && <List plants={plants} />}
                 </div>
                 <div className="justify-self-end max-h-10">
-                    <PrimaryButton>
-                        <Link href={route("plant.create")}>create</Link>
-                    </PrimaryButton>
+                    <PrimaryButton onClick={create}>create</PrimaryButton>
                 </div>
             </div>
         </BaseLayout>

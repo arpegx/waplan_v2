@@ -2,8 +2,9 @@ import InputError from "@/Components/InputError";
 import ImageUpload from "@/Components/Plant/ImageUpload";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
+import { create } from "@/Helper/Plant";
 import BaseLayout from "@/Layouts/BaseLayout";
-import { Link, useForm } from "@inertiajs/react";
+import { useForm } from "@inertiajs/react";
 import { FormEventHandler } from "react";
 
 export default function Create() {
@@ -42,9 +43,7 @@ export default function Create() {
                     <InputError message={errors.nick_name} />
                 </div>
                 <div className="flex justify-end gap-2 max-h-10">
-                    <PrimaryButton>
-                        <Link href={route("plant.index")}>index</Link>
-                    </PrimaryButton>
+                    <PrimaryButton onClick={create}>index</PrimaryButton>
                     <PrimaryButton disabled={processing}>store</PrimaryButton>
                 </div>
             </form>

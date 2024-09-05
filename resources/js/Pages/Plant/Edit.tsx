@@ -1,11 +1,12 @@
 import InputError from "@/Components/InputError";
+import ImageUpload from "@/Components/Plant/ImageUpload";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
+import { show } from "@/Helper/Plant";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
-import { Link, useForm, router } from "@inertiajs/react";
+import { router, useForm } from "@inertiajs/react";
 import { FormEventHandler } from "react";
-import ImageUpload from "@/Components/Plant/ImageUpload";
 
 export default function Edit(plant: Plant) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -60,10 +61,8 @@ export default function Edit(plant: Plant) {
                     <InputError message={errors.nick_name} />
                 </div>
                 <div className="flex justify-end gap-2 max-h-10">
-                    <PrimaryButton>
-                        <Link href={route("plant.show", [{ id: plant.id }])}>
-                            cancel
-                        </Link>
+                    <PrimaryButton onClick={() => show(plant)}>
+                        cancel
                     </PrimaryButton>
                     <PrimaryButton disabled={processing}>update</PrimaryButton>
                 </div>
