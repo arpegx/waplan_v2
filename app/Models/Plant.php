@@ -16,6 +16,11 @@ class Plant extends Model
         'picture',
     ];
 
+    /**
+     * Add Picture for an existing Plant
+     * @param \Illuminate\Foundation\Http\FormRequest $request
+     * @return void
+     */
     public function addPicture(FormRequest $request)
     {
         // store file
@@ -27,6 +32,12 @@ class Plant extends Model
         ]);
     }
 
+    /**
+     * Delete a Plant
+     * @override
+     * @return void
+     */
+    #[\Override]
     public function delete()
     {
         Storage::delete("public/images/plant/" . strrchr($this->picture, '/'));

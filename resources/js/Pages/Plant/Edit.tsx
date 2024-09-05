@@ -1,18 +1,16 @@
 import InputError from "@/Components/InputError";
-import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
 import { Link, useForm, router } from "@inertiajs/react";
 import { FormEventHandler } from "react";
-import styles from "./Plant.module.css";
-import { picture } from "@/Components/Plant/Plant";
+import ImageUpload from "@/Components/Plant/ImageUpload";
 
 export default function Edit(plant: Plant) {
     const { data, setData, post, processing, errors, reset } = useForm({
         nick_name: plant.nick_name,
-        picture: null,
+        picture: plant.picture,
     });
 
     function updateData(e: any) {
@@ -43,20 +41,11 @@ export default function Edit(plant: Plant) {
             <form onSubmit={submit} className="grid h-full content-between">
                 <h1 className="max-h-10">Edit</h1>
                 <div className="h-[40rem] text-center">
-                    <input
-                        id="uploadInput"
-                        type="file"
-                        onChange={updateData}
-                        accept="extensions:jpg,png"
-                        name="picture"
+                    <ImageUpload
+                        data={data}
+                        errors={errors}
+                        updateData={updateData}
                     />
-                    {plant.picture && (
-                        <img
-                            className={styles.picture}
-                            src={picture(plant)}
-                            alt="plant.picture"
-                        />
-                    )}
                     <TextInput
                         id="nick_name"
                         name="nick_name"

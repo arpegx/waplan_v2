@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import InputError from "../InputError";
+import { picture } from "./Plant";
 
 export default function ImageUpload({ data, errors, updateData }: any) {
     const uploadInput = useRef(
@@ -30,7 +31,11 @@ export default function ImageUpload({ data, errors, updateData }: any) {
                     ref={imagePreview}
                     onLoad={() => URL.revokeObjectURL(imagePreview.current.src)}
                     onClick={triggerUpload}
-                    src={URL.createObjectURL(data.picture)}
+                    src={
+                        typeof data.picture === "string"
+                            ? picture(data)
+                            : URL.createObjectURL(data.picture)
+                    }
                     alt="File uploaded"
                     className="imagePreview"
                 />
