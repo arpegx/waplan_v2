@@ -1,6 +1,6 @@
 import { Plant } from "@/types/plant";
-import PrimaryButton from "../PrimaryButton";
 import { Link } from "@inertiajs/react";
+import PrimaryButton from "../PrimaryButton";
 
 export default function PlantElement({ plant }: { plant: Plant }) {
     return (

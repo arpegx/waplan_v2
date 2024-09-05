@@ -1,4 +1,4 @@
-import PlantList from "@/Components/Plant/PlantList";
+import List from "@/Components/Plant/List";
 import PrimaryButton from "@/Components/PrimaryButton";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
@@ -9,7 +9,7 @@ export default function Index({ plants }: { plants: Plant[] }) {
         <BaseLayout>
             <div className="grid content-between h-full">
                 <div className="grid gap-2">
-                    {plants && <PlantList plants={plants} />}
+                    {plants && <List plants={plants} />}
                 </div>
                 <div className="justify-self-end max-h-10">
                     <PrimaryButton>
