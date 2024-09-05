@@ -62,7 +62,11 @@ export default function Edit(plant: Plant) {
                         name="nick_name"
                         placeholder="Nick Name"
                         value={data.nick_name}
-                        onChange={(e) => setData("nick_name", e.target.value)}
+                        onChange={(e) =>
+                            setData((prev) => {
+                                return { ...prev, nick_name: e.target.value };
+                            })
+                        }
                     />
                     <InputError message={errors.nick_name} />
                 </div>
