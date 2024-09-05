@@ -15,8 +15,7 @@ class PlantController extends Controller
      */
     public function index()
     {
-        $plants = Plant::all();
-        return Inertia::render('Plant/Index', ['plants' => $plants]);
+        return Inertia::render('Plant/Index', ['plants' => Plant::all()]);
     }
 
     /**
