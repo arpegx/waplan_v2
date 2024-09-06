@@ -2,7 +2,7 @@ import { picture } from "@/Helper/Plant";
 import { useRef } from "react";
 import InputError from "../InputError";
 
-export default function ImageUpload({ data, errors, updateData }: any) {
+export default function ImageUpload({ data, errors, setPicture }: any) {
     const uploadInput = useRef(
         document.getElementById("uploadInput") as HTMLInputElement
     );
@@ -20,7 +20,7 @@ export default function ImageUpload({ data, errors, updateData }: any) {
             <input
                 id="uploadInput"
                 ref={uploadInput}
-                onChange={updateData}
+                onChange={setPicture}
                 type="file"
                 accept="extensions:jpg,png"
                 name="picture"

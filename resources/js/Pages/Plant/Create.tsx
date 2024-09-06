@@ -14,16 +14,21 @@ export default function Create() {
             picture: null,
         });
 
-    function updateData(e: any) {
+    const submit: FormEventHandler = (e) => {
+        e.preventDefault();
+        post(route("plant.store"));
+    };
+
+    function setPicture(e: any) {
         setData((prev) => {
             return { ...prev, picture: e.target.files[0] };
         });
     }
 
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
-        post(route("plant.store"));
-    };
+    const setNickname = (e: any) =>
+        setData((prev) => {
+            return { ...prev, nick_name: e.target.value };
+        });
 
     return (
         <BaseLayout>
@@ -32,13 +37,13 @@ export default function Create() {
                     <ImageUpload
                         data={data}
                         errors={errors}
-                        updateData={updateData}
+                        setPicture={setPicture}
                     />
                     <TextInput
                         id="nick_name"
                         name="nick_name"
                         placeholder="Nick Name"
-                        onChange={(e) => setData("nick_name", e.target.value)}
+                        onChange={setNickname}
                     />
                     <InputError message={errors.nick_name} />
                 </div>

@@ -18,11 +18,6 @@ export default function Edit({ plant }: PropType) {
         picture: plant.picture,
     });
 
-    function updateData(e: any) {
-        setData((prev) => {
-            return { ...prev, picture: e.target.files[0] };
-        });
-    }
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
@@ -41,6 +36,17 @@ export default function Edit({ plant }: PropType) {
         );
     };
 
+    function setPicture(e: any) {
+        setData((prev) => {
+            return { ...prev, picture: e.target.files[0] };
+        });
+    }
+
+    const setNickname = (e: any) =>
+        setData((prev) => {
+            return { ...prev, nick_name: e.target.value };
+        });
+
     return (
         <BaseLayout>
             <form onSubmit={submit} className="grid h-full content-between">
@@ -49,18 +55,14 @@ export default function Edit({ plant }: PropType) {
                     <ImageUpload
                         data={data}
                         errors={errors}
-                        updateData={updateData}
+                        setPicture={setPicture}
                     />
                     <TextInput
                         id="nick_name"
                         name="nick_name"
                         placeholder="Nick Name"
                         value={data.nick_name}
-                        onChange={(e) =>
-                            setData((prev) => {
-                                return { ...prev, nick_name: e.target.value };
-                            })
-                        }
+                        onChange={setNickname}
                     />
                     <InputError message={errors.nick_name} />
                 </div>
