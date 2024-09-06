@@ -36,11 +36,11 @@ export default function Edit({ plant }: PropType) {
         picture: plant.picture,
     });
 
-    function setPicture(e: any) {
+    const setPicture = (e: any) => {
         setData((prev) => {
             return { ...prev, picture: e.target.files[0] };
         });
-    }
+    };
 
     const setNickname = (e: any) =>
         setData((prev) => {

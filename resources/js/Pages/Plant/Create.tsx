@@ -18,16 +18,17 @@ export default function Create() {
         picture: null,
     });
 
-    function setPicture(e: any) {
+    const setPicture = (e: any) => {
         setData((prev) => {
             return { ...prev, picture: e.target.files[0] };
         });
-    }
+    };
 
-    const setNickname = (e: any) =>
+    const setNickname = (e: any) => {
         setData((prev) => {
             return { ...prev, nick_name: e.target.value };
         });
+    };
 
     return (
         <BaseLayout>
