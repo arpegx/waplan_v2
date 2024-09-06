@@ -6,7 +6,7 @@ interface PropType {
     plant: Plant;
 }
 
-export default function PlantElement({ plant }: PropType) {
+export default function Element({ plant }: PropType) {
     return (
         <div className="grid grid-cols-2 max-h-10">
             <p>{plant.nick_name}</p>
