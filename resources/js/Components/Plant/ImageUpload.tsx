@@ -1,13 +1,11 @@
 import { picture } from "@/Helper/Plant";
 import { useRef } from "react";
 import InputError from "../InputError";
+import { Plant } from "@/types/plant";
 
 interface PropType {
-    data: {
-        nick_name: string;
-        picture: null | string | any;
-    };
-    errors: Partial<Record<"picture" | "nick_name", string>>;
+    data: Plant;
+    errors: Partial<Plant>;
     setPicture: any;
 }
 
