@@ -13,11 +13,6 @@ interface PropType {
 }
 
 export default function Edit({ plant }: PropType) {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        nick_name: plant.nick_name,
-        picture: plant.picture,
-    });
-
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
@@ -35,6 +30,11 @@ export default function Edit({ plant }: PropType) {
             }
         );
     };
+
+    const { data, setData, processing, errors } = useForm({
+        nick_name: plant.nick_name,
+        picture: plant.picture,
+    });
 
     function setPicture(e: any) {
         setData((prev) => {

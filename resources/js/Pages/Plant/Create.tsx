@@ -8,16 +8,15 @@ import { useForm } from "@inertiajs/react";
 import { FormEventHandler } from "react";
 
 export default function Create() {
-    const { data, setData, post, progress, processing, errors, reset } =
-        useForm({
-            nick_name: "",
-            picture: null,
-        });
-
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
         post(route("plant.store"));
     };
+
+    const { data, setData, post, processing, errors } = useForm({
+        nick_name: "",
+        picture: null,
+    });
 
     function setPicture(e: any) {
         setData((prev) => {
