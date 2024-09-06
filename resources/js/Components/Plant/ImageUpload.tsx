@@ -2,7 +2,16 @@ import { picture } from "@/Helper/Plant";
 import { useRef } from "react";
 import InputError from "../InputError";
 
-export default function ImageUpload({ data, errors, setPicture }: any) {
+interface PropType {
+    data: {
+        nick_name: string;
+        picture: null | string | any;
+    };
+    errors: Partial<Record<"picture" | "nick_name", string>>;
+    setPicture: any;
+}
+
+export default function ImageUpload({ data, errors, setPicture }: PropType) {
     const uploadInput = useRef(
         document.getElementById("uploadInput") as HTMLInputElement
     );
