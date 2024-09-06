@@ -10,12 +10,26 @@ interface PropType {
 }
 
 export default function ImageUpload({ data, errors, setPicture }: PropType) {
+    // references
     const uploadInput = useRef(
         document.getElementById("uploadInput") as HTMLInputElement
     );
     const imagePreview = useRef(
         document.getElementById("imagePreview") as HTMLImageElement
     );
+
+    // image
+    let image = undefined;
+    switch (true) {
+        case typeof data.picture === "string":
+            image = picture(data);
+            break;
+        case data.picture instanceof File:
+            image = URL.createObjectURL(data.picture);
+            break;
+        default:
+            image = "";
+    }
 
     const triggerUpload = () => {
         uploadInput.current.value = "";
@@ -38,11 +52,7 @@ export default function ImageUpload({ data, errors, setPicture }: PropType) {
                     ref={imagePreview}
                     onLoad={() => URL.revokeObjectURL(imagePreview.current.src)}
                     onClick={triggerUpload}
-                    src={
-                        typeof data.picture === "string"
-                            ? picture(data)
-                            : URL.createObjectURL(data.picture)
-                    }
+                    src={image}
                     alt="File uploaded"
                     className="imagePreview"
                 />
