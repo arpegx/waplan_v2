@@ -4,7 +4,7 @@ import InputError from "../InputError";
 import { Plant } from "@/types/plant";
 
 interface PropType {
-    data: Plant;
+    data: any;
     errors: Partial<Plant>;
     setPicture: any;
 }
