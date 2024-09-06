@@ -1,7 +1,7 @@
 import { picture } from "@/Helper/Plant";
+import { Plant } from "@/types/plant";
 import { useRef } from "react";
 import InputError from "../InputError";
-import { Plant } from "@/types/plant";
 
 interface PropType {
     data: any;
@@ -18,6 +18,12 @@ export default function ImageUpload({ data, errors, setPicture }: PropType) {
         document.getElementById("imagePreview") as HTMLImageElement
     );
 
+    // actions
+    const triggerUpload = () => {
+        uploadInput.current.value = "";
+        uploadInput.current.click();
+    };
+
     // image
     let image = undefined;
     switch (true) {
@@ -30,11 +36,6 @@ export default function ImageUpload({ data, errors, setPicture }: PropType) {
         default:
             image = "";
     }
-
-    const triggerUpload = () => {
-        uploadInput.current.value = "";
-        uploadInput.current.click();
-    };
 
     return (
         <div className="ImageUpload">

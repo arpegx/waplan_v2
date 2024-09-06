@@ -1,8 +1,8 @@
 import PrimaryButton from "@/Components/PrimaryButton";
 import { destroy, edit, index, picture } from "@/Helper/Plant";
 import BaseLayout from "@/Layouts/BaseLayout";
-import styles from "./Plant.module.css";
 import { Plant } from "@/types/plant";
+import styles from "./Plant.module.css";
 
 interface PropType {
     plant: Plant;
