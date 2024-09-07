@@ -24,7 +24,7 @@ class Plant extends Model
     public function addPicture(FormRequest $request)
     {
         // store file
-        $filename = request("nick_name") . "." . $request->file("picture")->extension();
+        $filename = time() . "_" . request("nick_name") . "." . $request->file("picture")->extension();
         $request->file("picture")->storeAs('public/images/plant', $filename);
 
         $this->fill([
