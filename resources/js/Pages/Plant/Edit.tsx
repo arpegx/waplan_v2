@@ -67,7 +67,7 @@ export default function Edit({ plant }: PropType) {
                     <InputError message={errors.nick_name} />
                 </div>
                 <div className="flex justify-end gap-2 max-h-10">
-                    <PrimaryButton onClick={() => show(plant)}>
+                    <PrimaryButton type="button" onClick={() => show(plant)}>
                         cancel
                     </PrimaryButton>
                     <PrimaryButton disabled={processing}>update</PrimaryButton>
