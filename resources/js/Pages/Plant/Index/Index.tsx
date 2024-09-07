@@ -1,8 +1,8 @@
-import List from "@/Components/Plant/List";
 import PrimaryButton from "@/Components/PrimaryButton";
 import { create } from "@/Helper/Plant";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
+import List from "./List";
 
 interface PropType {
     plants: Plant[];

@@ -1,5 +1,5 @@
+import ImageUpload from "@/Components/ImageUpload/ImageUpload";
 import InputError from "@/Components/InputError";
-import ImageUpload from "@/Components/Plant/ImageUpload";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import { show } from "@/Helper/Plant";

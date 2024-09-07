@@ -1,6 +1,6 @@
+import PrimaryButton from "@/Components/PrimaryButton";
 import { show } from "@/Helper/Plant";
 import { Plant } from "@/types/plant";
-import PrimaryButton from "../PrimaryButton";
 
 interface PropType {
     plant: Plant;

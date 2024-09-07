@@ -15,7 +15,7 @@ class PlantController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Plant/Index', ['plants' => Plant::all()]);
+        return Inertia::render('Plant/Index/Index', ['plants' => Plant::all()]);
     }
 
     /**
@@ -23,7 +23,7 @@ class PlantController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Plant/Create');
+        return Inertia::render('Plant/Create/Create');
     }
 
     /**
@@ -49,7 +49,7 @@ class PlantController extends Controller
      */
     public function show(Plant $plant)
     {
-        return Inertia::render('Plant/Show', compact('plant'));
+        return Inertia::render('Plant/Show/Show', compact('plant'));
     }
 
     /**
@@ -57,7 +57,7 @@ class PlantController extends Controller
      */
     public function edit(Plant $plant)
     {
-        return Inertia::render('Plant/Edit', compact('plant'));
+        return Inertia::render('Plant/Edit/Edit', compact('plant'));
     }
 
     /**
