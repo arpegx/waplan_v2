@@ -1,3 +1,4 @@
+import ActionBar from "@/Components/ActionBar";
 import PrimaryButton from "@/Components/PrimaryButton";
 import { create } from "@/Helper/Plant";
 import BaseLayout from "@/Layouts/BaseLayout";
@@ -15,9 +16,9 @@ export default function Index({ plants }: PropType) {
                 <div className="grid gap-2">
                     {plants && <List plants={plants} />}
                 </div>
-                <div className="justify-self-end max-h-10">
+                <ActionBar className="justify-self-end max-h-10">
                     <PrimaryButton onClick={create}>create</PrimaryButton>
-                </div>
+                </ActionBar>
             </div>
         </BaseLayout>
     );

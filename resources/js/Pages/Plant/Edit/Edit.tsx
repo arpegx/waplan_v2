@@ -1,3 +1,4 @@
+import ActionBar from "@/Components/ActionBar";
 import ImageUpload from "@/Components/ImageUpload";
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
@@ -66,12 +67,12 @@ export default function Edit({ plant }: PropType) {
                     />
                     <InputError message={errors.nick_name} />
                 </div>
-                <div className="flex justify-end gap-2 max-h-10">
+                <ActionBar className="flex justify-end gap-2 max-h-10">
                     <PrimaryButton type="button" onClick={() => show(plant)}>
                         cancel
                     </PrimaryButton>
                     <PrimaryButton disabled={processing}>update</PrimaryButton>
-                </div>
+                </ActionBar>
             </form>
         </BaseLayout>
     );

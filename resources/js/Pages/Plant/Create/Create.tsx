@@ -1,3 +1,4 @@
+import ActionBar from "@/Components/ActionBar";
 import ImageUpload from "@/Components/ImageUpload";
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
@@ -47,12 +48,12 @@ export default function Create() {
                     />
                     <InputError message={errors.nick_name} />
                 </div>
-                <div className="flex justify-end gap-2 max-h-10">
+                <ActionBar className="flex justify-end gap-2 max-h-10">
                     <PrimaryButton onClick={index} type="button">
                         index
                     </PrimaryButton>
                     <PrimaryButton disabled={processing}>store</PrimaryButton>
-                </div>
+                </ActionBar>
             </form>
         </BaseLayout>
     );
