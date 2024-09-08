@@ -11,10 +11,10 @@ interface PropType {
 export default function Show({ plant }: PropType) {
     return (
         <BaseLayout>
-            <div className="h-full grid content-between">
+            <div className="PlantShow h-full grid content-between">
                 <div>
                     <img
-                        className={styles.picture}
+                        className="picture"
                         src={picture(plant)}
                         alt="plant.picture"
                     />

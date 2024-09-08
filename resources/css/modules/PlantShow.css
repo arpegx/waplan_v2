@@ -1,0 +1,15 @@
+.PlantShow {
+    .picture {
+        width: 60vw;
+        max-width: 60vw;
+        height: 55vw;
+        max-height: 55vw;
+        border: 1px dashed grey;
+        border-radius: 5% 5% 80% 5%;
+        box-shadow: var(--c_shadow_grey);
+        margin: 1rem 1rem 1rem 1.6rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 40%;
+    }
+}
