@@ -13,7 +13,7 @@
         box-shadow: var(--c_shadow_grey);
         padding: 20vw;
         margin: 1rem;
-        background: url("../assets/icons/fileUpload.png");
+        background: url("../../assets/icons/fileUpload.png");
         background-position: center;
         background-repeat: no-repeat;
         background-size: 40%;
@@ -28,7 +28,7 @@
         border-radius: 5% 5% 80% 5%;
         box-shadow: var(--c_shadow_grey);
         margin: 1rem 1rem 1rem 1.6rem;
-        background: url("../assets/icons/fileUpload.png");
+        background: url("../../assets/icons/fileUpload.png");
         background-position: center;
         background-repeat: no-repeat;
         background-size: 40%;

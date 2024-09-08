@@ -1,6 +1,6 @@
 @import "./colors.css";
 @import "./layout.css";
-@import "./ImageUpload.css";
+@import "./modules/ImageUpload.css";
 /* @import "./debug.css"; */
 @tailwind base;
 @tailwind components;

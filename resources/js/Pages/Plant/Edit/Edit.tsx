@@ -1,4 +1,4 @@
-import ImageUpload from "@/Components/ImageUpload/ImageUpload";
+import ImageUpload from "@/Components/ImageUpload";
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";

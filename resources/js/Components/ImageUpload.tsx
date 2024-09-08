@@ -1,7 +1,7 @@
 import { picture } from "@/Helper/Plant";
 import { Plant } from "@/types/plant";
 import { useRef } from "react";
-import InputError from "../InputError";
+import InputError from "./InputError";
 
 interface PropType {
     data: any;
