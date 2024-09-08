@@ -2,7 +2,7 @@ import ImageUpload from "@/Components/ImageUpload/ImageUpload";
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
-import { create } from "@/Helper/Plant";
+import { index } from "@/Helper/Plant";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { useForm } from "@inertiajs/react";
 import { FormEventHandler } from "react";
@@ -48,7 +48,9 @@ export default function Create() {
                     <InputError message={errors.nick_name} />
                 </div>
                 <div className="flex justify-end gap-2 max-h-10">
-                    <PrimaryButton onClick={create}>index</PrimaryButton>
+                    <PrimaryButton onClick={index} type="button">
+                        index
+                    </PrimaryButton>
                     <PrimaryButton disabled={processing}>store</PrimaryButton>
                 </div>
             </form>
