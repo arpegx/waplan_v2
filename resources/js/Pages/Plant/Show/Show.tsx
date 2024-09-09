@@ -9,6 +9,11 @@ interface PropType {
 }
 
 export default function Show({ plant }: PropType) {
+    const _watered = new Date(plant.watered_at);
+    const watered_at = `${_watered.getDate()}.${
+        _watered.getMonth() + 1
+    }.${_watered.getFullYear()}`;
+
     return (
         <BaseLayout>
             <div className="PlantShow h-full grid content-between">
@@ -19,7 +24,10 @@ export default function Show({ plant }: PropType) {
                         alt="plant.picture"
                     />
                     <div className="text-center">
-                        <p>{plant.nick_name}</p>
+                        <p>Nickname: {plant.nick_name}</p>
+                    </div>
+                    <div className="text-center">
+                        <p>Watered_at: {watered_at}</p>
                     </div>
                 </div>
                 <ActionBar className="flex justify-end gap-2">

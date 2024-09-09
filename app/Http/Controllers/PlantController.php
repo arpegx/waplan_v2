@@ -33,6 +33,7 @@ class PlantController extends Controller
     {
         $plant = new Plant([
             'nick_name' => request('nick_name'),
+            'watered_at' => request('watered_at'),
         ]);
 
         if ($request->hasFile("picture")) {

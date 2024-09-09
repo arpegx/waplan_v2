@@ -17,6 +17,7 @@ export default function Create() {
     const { data, setData, post, processing, errors } = useForm({
         nick_name: "",
         picture: null,
+        watered_at: null,
     });
 
     const setPicture = (e: any) => {
@@ -28,6 +29,11 @@ export default function Create() {
     const setNickname = (e: any) => {
         setData((prev) => {
             return { ...prev, nick_name: e.target.value };
+        });
+    };
+    const setWateredAt = (e: any) => {
+        setData((prev) => {
+            return { ...prev, watered_at: e.target.value };
         });
     };
 
@@ -46,6 +52,15 @@ export default function Create() {
                         placeholder="Nick Name"
                         onChange={setNickname}
                     />
+                    <label htmlFor="watered_at">
+                        Watered
+                        <input
+                            onChange={setWateredAt}
+                            type="date"
+                            id="watered_at"
+                            name="watered_at"
+                        />
+                    </label>
                     <InputError message={errors.nick_name} />
                 </div>
                 <ActionBar className="flex justify-end gap-2 max-h-10">
