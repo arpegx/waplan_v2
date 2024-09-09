@@ -15,10 +15,11 @@ export const SelectionContext = createContext<any>({
 });
 
 export default function Index({ plants }: PropType) {
-    const [selection, setSelection] = useState([]);
-    const select = (e: never) => {
-        selection.push(e);
-        console.log(selection);
+    const [selection, setSelection] = useState<Set<Number>>(new Set());
+    const select = (e: number) => {
+        selection.has(e)
+            ? setSelection(selection.difference(new Set([e])))
+            : selection.add(e);
     };
 
     const [water, setWater] = useState([]);

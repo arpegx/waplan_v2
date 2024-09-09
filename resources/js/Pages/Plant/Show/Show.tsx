@@ -1,6 +1,6 @@
 import ActionBar from "@/Components/ActionBar";
 import PrimaryButton from "@/Components/PrimaryButton";
-import { destroy, edit, index, picture } from "@/Helper/Plant";
+import { destroy, edit, index, picture, watered_at } from "@/Helper/Plant";
 import BaseLayout from "@/Layouts/BaseLayout";
 import { Plant } from "@/types/plant";
 
@@ -9,11 +9,6 @@ interface PropType {
 }
 
 export default function Show({ plant }: PropType) {
-    const _watered = new Date(plant.watered_at);
-    const watered_at = `${_watered.getDate()}.${
-        _watered.getMonth() + 1
-    }.${_watered.getFullYear()}`;
-
     return (
         <BaseLayout>
             <div className="PlantShow h-full grid content-between">
@@ -27,7 +22,7 @@ export default function Show({ plant }: PropType) {
                         <p>Nickname: {plant.nick_name}</p>
                     </div>
                     <div className="text-center">
-                        <p>Watered_at: {watered_at}</p>
+                        <p>Watered_at: {watered_at(plant)}</p>
                     </div>
                 </div>
                 <ActionBar className="flex justify-end gap-2">

@@ -17,3 +17,11 @@ export function picture(plant: Plant){
         + "/storage/images/plant/" 
         + plant.picture.split("/").pop();
 }
+
+export function watered_at(plant: Plant){
+    const _watered = new Date(plant.watered_at);
+    const watered_at = `${_watered.getDate()}.${
+        _watered.getMonth() + 1
+    }.${_watered.getFullYear()}`;
+    return watered_at;
+}
