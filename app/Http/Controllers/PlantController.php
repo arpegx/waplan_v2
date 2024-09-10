@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePlantRequest;
 use App\Http\Requests\UpdatePlantRequest;
 use App\Models\Plant;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
@@ -15,7 +16,7 @@ class PlantController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Plant/Index/Index', ['plants' => Plant::all()]);
+        return Inertia::render('Plant/Index/Index', ['plants' => Plant::all()->sortBy('watered_at')->values()]);
     }
 
     /**
@@ -85,6 +86,15 @@ class PlantController extends Controller
     public function destroy(Plant $plant)
     {
         $plant->delete();
+
+        return to_route('plant.index');
+    }
+
+    public function water(Request $request)
+    {
+        foreach ($request->plants as $plant_id) {
+            Plant::find($plant_id)->water();
+        }
 
         return to_route('plant.index');
     }
