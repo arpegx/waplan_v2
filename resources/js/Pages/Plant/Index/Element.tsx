@@ -11,6 +11,10 @@ interface PropType {
 export default function Element({ plant }: PropType) {
     const [selected, setSelected] = useState(false);
     const select = useContext(SelectionContext);
+    const toggle = () => {
+        select.select(plant.id);
+        setSelected(Array.from(select.selection).includes(plant.id));
+    };
     return (
         <div
             className={`grid grid-cols-2 max-h-10 ${
@@ -19,14 +23,7 @@ export default function Element({ plant }: PropType) {
         >
             <p>Nickname: {plant.nick_name}</p>
             <p>Watered_at: {watered_at(plant)}</p>
-            <PrimaryButton
-                onClick={() => {
-                    setSelected(!selected);
-                    select.select(plant.id);
-                }}
-            >
-                select
-            </PrimaryButton>
+            <PrimaryButton onClick={toggle}>select</PrimaryButton>
             <PrimaryButton
                 onClick={() => show(plant)}
                 className="w-fit justify-self-end"

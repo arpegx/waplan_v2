@@ -23,15 +23,16 @@ export default function Index({ plants }: PropType) {
     });
 
     const select = (e: number) => {
-        selection.has(e)
-            ? setSelection(selection.difference(new Set([e])))
-            : selection.add(e);
+        selection.has(e) ? selection.delete(e) : selection.add(e);
         setData({ plants: Array.from(selection) as never[] });
     };
 
     const water: FormEventHandler = (e) => {
+        console.log(selection);
         e.preventDefault();
         post(route("plant.water"));
+        selection.clear();
+        console.log(selection);
     };
 
     return (
