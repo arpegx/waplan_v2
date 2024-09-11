@@ -2,14 +2,14 @@
 use App\Models\Plant;
 use Illuminate\Http\UploadedFile;
 
-test('Plant.Index is displayed', function () {
+test('plant.index is displayed', function () {
     $response = $this
         ->get('/plant');
 
     $response->assertOk();
 });
 
-test('Plant.Create is displayed', function () {
+test('plant.create is displayed', function () {
     $response = $this
         ->get('/plant/create');
 
@@ -22,6 +22,7 @@ test('plant.store creates new plant', function () {
 
     $response = $this->post('/plant', [
         'nick_name' => $nick_name,
+        'watered_at' => now(),
         'picture' => $file,
     ]);
 
@@ -30,15 +31,19 @@ test('plant.store creates new plant', function () {
     $response
         ->assertStatus(302)
         ->assertRedirect(route('plant.show', $plant));
+
+    $plant->delete();
 });
 
-test('Plant.Show is displayed', function () {
+test('plant.show is displayed', function () {
     $plant = Plant::factory()->create();
 
     $response = $this
         ->get('/plant/', compact('plant'));
 
     $response->assertOk();
+
+    $plant->delete();
 });
 
 test('plant.edit is displayeable', function () {
@@ -46,6 +51,8 @@ test('plant.edit is displayeable', function () {
 
     $response = $this->get(route('plant.edit', $plant))
         ->assertOk();
+
+    $plant->delete();
 });
 
 test('plant.update', function () {
@@ -55,6 +62,8 @@ test('plant.update', function () {
         ->assertStatus(302);
 
     expect((Plant::find($plant)->first())->nick_name)->toEqual('Jane');
+
+    $plant->delete();
 });
 
 test('plant.delete', function () {
@@ -66,4 +75,21 @@ test('plant.delete', function () {
         ->assertRedirect(route('plant.index'));
 
     expect(Plant::find($plant)?->first())->toBeNull();
+});
+
+test('plant.water', function () {
+    $plant = Plant::create([
+        'nick_name' => 'test_plant',
+        'watered_at' => '1960-01-01',
+    ]);
+
+    $response = $this
+        ->post(route('plant.water'), ['plants' => [$plant]])
+        ->assertStatus(302)
+        ->assertRedirect(route('plant.index'));
+
+    $plant = Plant::find($plant->id);
+    expect($plant->watered_at)->tobe(date(format: 'Y-m-d'));
+
+    $plant->delete();
 });

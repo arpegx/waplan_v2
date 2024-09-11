@@ -35,7 +35,6 @@ class Plant extends Model
 
     public function water()
     {
-        // dd($plants);
         $this->update([
             'watered_at' => now(),
         ]);

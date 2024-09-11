@@ -93,7 +93,7 @@ class PlantController extends Controller
     public function water(Request $request)
     {
         foreach ($request->plants as $plant_id) {
-            Plant::find($plant_id)->water();
+            Plant::find($plant_id)->first()->water();
         }
 
         return to_route('plant.index');

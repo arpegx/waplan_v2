@@ -18,6 +18,7 @@ class PlantFactory extends Factory
     {
         return [
             'nick_name' => fake()->name(),
+            'watered_at' => fake()->date(format: 'Y-m-d', max: 'now'),
         ];
     }
 }

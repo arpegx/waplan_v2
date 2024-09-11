@@ -7,43 +7,45 @@ import { useForm } from "@inertiajs/react";
 import { createContext, FormEventHandler, useState } from "react";
 import List from "./List";
 
+export const WaterContext = createContext<any>({
+    toggle: Function,
+    collection: Set<Number>,
+});
+
 interface PropType {
     plants: Plant[];
 }
 
-export const SelectionContext = createContext<any>({
-    id: undefined,
-});
-
 export default function Index({ plants }: PropType) {
-    const [selection, setSelection] = useState<Set<Number>>(new Set());
-
-    const { data, setData, post, processing, errors } = useForm({
+    const { setData, post } = useForm({
         plants: [],
     });
 
-    const select = (e: number) => {
-        selection.has(e) ? selection.delete(e) : selection.add(e);
-        setData({ plants: Array.from(selection) as never[] });
+    // manage collection of plants to be watered
+    const [collection] = useState<Set<Number>>(new Set());
+    const toggle = (plant_id: number) => {
+        collection.has(plant_id)
+            ? collection.delete(plant_id)
+            : collection.add(plant_id);
+        setData({ plants: Array.from(collection) as never[] });
     };
 
+    // dispatch water action
     const water: FormEventHandler = (e) => {
-        console.log(selection);
         e.preventDefault();
         post(route("plant.water"));
-        selection.clear();
-        console.log(selection);
+        collection.clear();
     };
 
     return (
         <BaseLayout>
             <div className="grid content-between h-full">
-                <SelectionContext.Provider
-                    value={{ select, selection }}
+                <WaterContext.Provider
+                    value={{ toggle: toggle, collection: collection }}
                     className="grid gap-2"
                 >
                     {plants && <List plants={plants} />}
-                </SelectionContext.Provider>
+                </WaterContext.Provider>
                 <ActionBar className="justify-self-end max-h-10">
                     <PrimaryButton onClick={create}>create</PrimaryButton>
                 </ActionBar>
