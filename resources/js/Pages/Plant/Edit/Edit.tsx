@@ -50,24 +50,21 @@ export default function Edit({ plant }: PropType) {
 
     return (
         <BaseLayout>
-            <form onSubmit={submit} className="grid h-full content-between">
-                <h1 className="max-h-10">Edit</h1>
-                <div className="h-[40rem] text-center">
-                    <ImageUpload
-                        data={data}
-                        errors={errors}
-                        setPicture={setPicture}
-                    />
-                    <TextInput
-                        id="nick_name"
-                        name="nick_name"
-                        placeholder="Nick Name"
-                        value={data.nick_name}
-                        onChange={setNickname}
-                    />
-                    <InputError message={errors.nick_name} />
-                </div>
-                <ActionBar className="flex justify-end gap-2 max-h-10">
+            <form onSubmit={submit}>
+                <ImageUpload
+                    data={data}
+                    errors={errors}
+                    setPicture={setPicture}
+                />
+                <TextInput
+                    id="nick_name"
+                    name="nick_name"
+                    placeholder="Nick Name"
+                    value={data.nick_name}
+                    onChange={setNickname}
+                />
+                <InputError message={errors.nick_name} />
+                <ActionBar>
                     <PrimaryButton type="button" onClick={() => show(plant)}>
                         cancel
                     </PrimaryButton>

@@ -10,31 +10,17 @@ interface PropType {
 
 export default function Show({ plant }: PropType) {
     return (
-        <BaseLayout>
-            <div className="PlantShow h-full grid content-between">
-                <div>
-                    <img
-                        className="picture"
-                        src={picture(plant)}
-                        alt="plant.picture"
-                    />
-                    <div className="text-center">
-                        <p>Nickname: {plant.nick_name}</p>
-                    </div>
-                    <div className="text-center">
-                        <p>Watered_at: {watered_at(plant)}</p>
-                    </div>
-                </div>
-                <ActionBar className="flex justify-end gap-2">
-                    <PrimaryButton onClick={index}>index</PrimaryButton>
-                    <PrimaryButton onClick={() => edit(plant)}>
-                        edit
-                    </PrimaryButton>
-                    <PrimaryButton onClick={() => destroy(plant)}>
-                        destroy
-                    </PrimaryButton>
-                </ActionBar>
-            </div>
+        <BaseLayout id="PlantShow">
+            <img id="picture" src={picture(plant)} alt="plant.picture" />
+            <p>Nickname: {plant.nick_name}</p>
+            <p>Watered_at: {watered_at(plant)}</p>
+            <ActionBar>
+                <PrimaryButton onClick={index}>index</PrimaryButton>
+                <PrimaryButton onClick={() => edit(plant)}>edit</PrimaryButton>
+                <PrimaryButton onClick={() => destroy(plant)}>
+                    destroy
+                </PrimaryButton>
+            </ActionBar>
         </BaseLayout>
     );
 }

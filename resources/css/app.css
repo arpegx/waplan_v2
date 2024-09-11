@@ -1,8 +1,9 @@
+@import "./debug.css";
 @import "./colors.css";
-@import "./modules/BaseLayout.css";
-@import "./modules/ImageUpload.css";
-@import "./modules/PlantShow.css";
-/* @import "./debug.css"; */
+@import "./modules/Layout/BaseLayout.css";
+@import "./modules/Plant/Show.css";
+@import "./modules/Components/ImageUpload.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

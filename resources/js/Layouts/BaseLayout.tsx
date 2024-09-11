@@ -1,10 +1,17 @@
-import { PropsWithChildren } from "react";
+import { ReactNode } from "react";
 
-export default function BaseLayout({ children }: PropsWithChildren) {
+interface PropType {
+    children: ReactNode;
+    id?: string;
+}
+
+export default function BaseLayout({ children, id }: PropType) {
     return (
-        <div className="BaseLayout">
-            <div className="BaseContainer">
-                <div className="BaseContent">{children}</div>
+        <div id="BaseLayout">
+            <div id="container">
+                <div id="content">
+                    <div id={id}>{children}</div>
+                </div>
             </div>
         </div>
     );

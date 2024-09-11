@@ -38,21 +38,18 @@ export default function Index({ plants }: PropType) {
     };
 
     return (
-        <BaseLayout>
-            <div className="grid content-between h-full">
-                <WaterContext.Provider
-                    value={{ toggle: toggle, collection: collection }}
-                    className="grid gap-2"
-                >
-                    {plants && <List plants={plants} />}
-                </WaterContext.Provider>
-                <ActionBar className="justify-self-end max-h-10">
-                    <PrimaryButton onClick={create}>create</PrimaryButton>
-                </ActionBar>
-                <form onSubmit={water}>
-                    <PrimaryButton>water</PrimaryButton>
-                </form>
-            </div>
+        <BaseLayout id="PlantIndex">
+            <WaterContext.Provider
+                value={{ toggle: toggle, collection: collection }}
+            >
+                {plants && <List plants={plants} />}
+            </WaterContext.Provider>
+            <ActionBar>
+                <PrimaryButton onClick={create}>create</PrimaryButton>
+            </ActionBar>
+            <form onSubmit={water}>
+                <PrimaryButton>water</PrimaryButton>
+            </form>
         </BaseLayout>
     );
 }

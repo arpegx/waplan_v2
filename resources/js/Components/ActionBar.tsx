@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 interface PropType {
     children: ReactNode;
-    className: string;
+    className?: string;
 }
 
 export default function ActionBar({ children, className = "" }: PropType) {
