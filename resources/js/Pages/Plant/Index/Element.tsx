@@ -1,7 +1,7 @@
 import PrimaryButton from "@/Components/PrimaryButton";
 import { show, watered_at } from "@/Helper/Plant";
 import { Plant } from "@/types/plant";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SelectionContext } from "./Index";
 
 interface PropType {
@@ -15,6 +15,10 @@ export default function Element({ plant }: PropType) {
         select.select(plant.id);
         setSelected(Array.from(select.selection).includes(plant.id));
     };
+    useEffect(() =>
+        setSelected(Array.from(select.selection).includes(plant.id))
+    );
+
     return (
         <div
             className={`grid grid-cols-2 max-h-10 ${
