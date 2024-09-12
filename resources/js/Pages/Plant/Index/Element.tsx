@@ -18,11 +18,7 @@ export default function Element({ plant }: PropType) {
     );
 
     return (
-        <div
-            className={`grid grid-cols-2 max-h-10 ${
-                selected ? "bg-green-500" : ""
-            }`}
-        >
+        <div id="Element" className={selected ? "bg-green-500" : ""}>
             <p>Nickname: {plant.nick_name}</p>
             <p>Watered_at: {watered_at(plant)}</p>
             <PrimaryButton onClick={() => water.toggle(plant.id)}>

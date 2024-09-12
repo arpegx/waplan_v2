@@ -1,0 +1,8 @@
+#ActionBar {
+    background-color: aqua;
+    display: flex;
+    position: absolute;
+    bottom: 2rem;
+    width: 75%;
+    margin: 0rem 0.75rem;
+}

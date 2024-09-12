@@ -46,10 +46,10 @@ export default function Index({ plants }: PropType) {
             </WaterContext.Provider>
             <ActionBar>
                 <PrimaryButton onClick={create}>create</PrimaryButton>
+                <form onSubmit={water}>
+                    <PrimaryButton>water</PrimaryButton>
+                </form>
             </ActionBar>
-            <form onSubmit={water}>
-                <PrimaryButton>water</PrimaryButton>
-            </form>
         </BaseLayout>
     );
 }

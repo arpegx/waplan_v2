@@ -1,0 +1,12 @@
+#PlantIndex {
+    min-height: 100%;
+
+    #List {
+        background-color: green;
+
+        #Element {
+            background-color: yellow;
+            display: grid;
+        }
+    }
+}

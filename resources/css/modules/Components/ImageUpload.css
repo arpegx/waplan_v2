@@ -1,0 +1,40 @@
+.ImageUpload {
+    #uploadInput {
+        display: none;
+    }
+
+    .btn_file_upload {
+        width: 60vw;
+        max-width: 60vw;
+        height: 55vw;
+        max-height: 55vw;
+        border: 1px dashed grey;
+        border-radius: 5% 5% 80% 5%;
+        box-shadow: var(--c_shadow_grey);
+        padding: 20vw;
+        margin: 1rem;
+        background: url("../../assets/icons/fileUpload.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 40%;
+    }
+
+    .imagePreview {
+        width: 60vw;
+        max-width: 60vw;
+        height: 55vw;
+        max-height: 55vw;
+        border: 1px dashed grey;
+        border-radius: 5% 5% 80% 5%;
+        box-shadow: var(--c_shadow_grey);
+        margin: 1rem 1rem 1rem 1.6rem;
+        background: url("../../assets/icons/fileUpload.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 40%;
+    }
+}
+
+/* Quellen: */
+/* https://www.flaticon.com/free-icon/send_11764930?term=image+upload&page=1&position=71&origin=search&related_id=11764930 */
+/* https://www.flaticon.com/free-icon/file_1091223?term=file+upload&related_id=1091223 */

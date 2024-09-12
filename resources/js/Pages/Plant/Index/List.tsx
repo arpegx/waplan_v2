@@ -6,7 +6,11 @@ interface PropType {
 }
 
 export default function List({ plants }: PropType) {
-    return plants.map((plant: Plant) => (
-        <Element plant={plant} key={plant.id} />
-    ));
+    return (
+        <div id="List">
+            {plants.map((plant: Plant) => (
+                <Element plant={plant} key={plant.id} />
+            ))}
+        </div>
+    );
 }
