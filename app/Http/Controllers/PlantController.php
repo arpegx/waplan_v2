@@ -32,10 +32,7 @@ class PlantController extends Controller
      */
     public function store(StorePlantRequest $request)
     {
-        $plant = new Plant([
-            'nick_name' => request('nick_name'),
-            'watered_at' => request('watered_at'),
-        ]);
+        $plant = new Plant($request->except('picture'));
 
         if ($request->hasFile("picture")) {
             $plant->addPicture($request);

@@ -20,6 +20,7 @@ export default function Element({ plant }: PropType) {
     return (
         <div id="Element" className={selected ? "bg-green-500" : ""}>
             <p>Nickname: {plant.nick_name}</p>
+            {plant.botanical && <p>Botanical: {plant.botanical}</p>}
             <p>Watered_at: {watered_at(plant)}</p>
             <PrimaryButton onClick={() => water.toggle(plant.id)}>
                 select

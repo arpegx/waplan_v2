@@ -13,6 +13,7 @@ export default function Show({ plant }: PropType) {
         <BaseLayout id="PlantShow">
             <img id="picture" src={picture(plant)} alt="plant.picture" />
             <p>Nickname: {plant.nick_name}</p>
+            {plant.botanical && <p>Botanical: {plant.botanical}</p>}
             <p>Watered_at: {watered_at(plant)}</p>
             <ActionBar>
                 <PrimaryButton onClick={index}>index</PrimaryButton>

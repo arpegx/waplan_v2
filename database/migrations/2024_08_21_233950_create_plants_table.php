@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('plants', function (Blueprint $table) {
             $table->id();
             $table->string('nick_name');
+            $table->string('botanical')->nullable();
             $table->string('picture')->nullable();
             $table->date('watered_at');
             $table->timestamps();

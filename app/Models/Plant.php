@@ -13,6 +13,7 @@ class Plant extends Model
 
     protected $fillable = [
         'nick_name',
+        'botanical',
         'picture',
         'watered_at',
     ];

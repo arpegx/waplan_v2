@@ -25,6 +25,7 @@ export default function Edit({ plant }: PropType) {
             ]),
             {
                 nick_name: data.nick_name,
+                botanical: data.botanical,
                 picture: data.picture,
                 forceFormData: true,
                 _method: "patch",
@@ -34,6 +35,7 @@ export default function Edit({ plant }: PropType) {
 
     const { data, setData, processing, errors } = useForm({
         nick_name: plant.nick_name,
+        botanical: plant.botanical,
         picture: plant.picture,
     });
 
@@ -43,9 +45,15 @@ export default function Edit({ plant }: PropType) {
         });
     };
 
+    //todo get ride of those three through generalization
     const setNickname = (e: any) =>
         setData((prev) => {
             return { ...prev, nick_name: e.target.value };
+        });
+
+    const setBotanical = (e: any) =>
+        setData((prev) => {
+            return { ...prev, botanical: e.target.value };
         });
 
     return (
@@ -56,12 +64,20 @@ export default function Edit({ plant }: PropType) {
                     errors={errors}
                     setPicture={setPicture}
                 />
+                {/* todo get ride of those three through generalization */}
                 <TextInput
                     id="nick_name"
                     name="nick_name"
                     placeholder="Nick Name"
                     value={data.nick_name}
                     onChange={setNickname}
+                />
+                <TextInput
+                    id="botanical"
+                    name="botanical"
+                    placeholder="Botanical"
+                    value={data.botanical}
+                    onChange={setBotanical}
                 />
                 <InputError message={errors.nick_name} />
                 <ActionBar>

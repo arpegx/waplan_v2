@@ -16,6 +16,7 @@ export default function Create() {
 
     const { data, setData, post, processing, errors } = useForm({
         nick_name: "",
+        botanical: "",
         picture: null,
         watered_at: null,
     });
@@ -26,11 +27,19 @@ export default function Create() {
         });
     };
 
+    //todo get ride of those three through generalization
     const setNickname = (e: any) => {
         setData((prev) => {
             return { ...prev, nick_name: e.target.value };
         });
     };
+
+    const setBotanical = (e: any) => {
+        setData((prev) => {
+            return { ...prev, botanical: e.target.value };
+        });
+    };
+
     const setWateredAt = (e: any) => {
         setData((prev) => {
             return { ...prev, watered_at: e.target.value };
@@ -51,6 +60,12 @@ export default function Create() {
                         name="nick_name"
                         placeholder="Nick Name"
                         onChange={setNickname}
+                    />
+                    <TextInput
+                        id="botanical"
+                        name="botanical"
+                        placeholder="Botanical"
+                        onChange={setBotanical}
                     />
                     <label htmlFor="watered_at">
                         Watered
