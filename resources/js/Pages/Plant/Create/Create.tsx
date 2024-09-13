@@ -27,7 +27,6 @@ export default function Create() {
         });
     };
 
-    //todo get ride of those three through generalization
     const updateForm = (e: any) => {
         setData((prev) => {
             return { ...prev, [e.target.name]: e.target.value };

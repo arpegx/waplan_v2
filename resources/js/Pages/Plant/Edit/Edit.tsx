@@ -45,16 +45,11 @@ export default function Edit({ plant }: PropType) {
         });
     };
 
-    //todo get ride of those three through generalization
-    const setNickname = (e: any) =>
+    const updateForm = (e: any) => {
         setData((prev) => {
-            return { ...prev, nick_name: e.target.value };
+            return { ...prev, [e.target.name]: e.target.value };
         });
-
-    const setBotanical = (e: any) =>
-        setData((prev) => {
-            return { ...prev, botanical: e.target.value };
-        });
+    };
 
     return (
         <BaseLayout>
@@ -64,20 +59,19 @@ export default function Edit({ plant }: PropType) {
                     errors={errors}
                     setPicture={setPicture}
                 />
-                {/* todo get ride of those three through generalization */}
                 <TextInput
                     id="nick_name"
                     name="nick_name"
                     placeholder="Nick Name"
                     value={data.nick_name}
-                    onChange={setNickname}
+                    onChange={updateForm}
                 />
                 <TextInput
                     id="botanical"
                     name="botanical"
                     placeholder="Botanical"
                     value={data.botanical}
-                    onChange={setBotanical}
+                    onChange={updateForm}
                 />
                 <InputError message={errors.nick_name} />
                 <ActionBar>
