@@ -28,21 +28,9 @@ export default function Create() {
     };
 
     //todo get ride of those three through generalization
-    const setNickname = (e: any) => {
+    const updateForm = (e: any) => {
         setData((prev) => {
-            return { ...prev, nick_name: e.target.value };
-        });
-    };
-
-    const setBotanical = (e: any) => {
-        setData((prev) => {
-            return { ...prev, botanical: e.target.value };
-        });
-    };
-
-    const setWateredAt = (e: any) => {
-        setData((prev) => {
-            return { ...prev, watered_at: e.target.value };
+            return { ...prev, [e.target.name]: e.target.value };
         });
     };
 
@@ -59,18 +47,18 @@ export default function Create() {
                         id="nick_name"
                         name="nick_name"
                         placeholder="Nick Name"
-                        onChange={setNickname}
+                        onChange={updateForm}
                     />
                     <TextInput
                         id="botanical"
                         name="botanical"
                         placeholder="Botanical"
-                        onChange={setBotanical}
+                        onChange={updateForm}
                     />
                     <label htmlFor="watered_at">
                         Watered
                         <input
-                            onChange={setWateredAt}
+                            onChange={updateForm}
                             type="date"
                             id="watered_at"
                             name="watered_at"
